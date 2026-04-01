@@ -1,3 +1,6 @@
+Sales page · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,184 +8,725 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30-Day Girl Transformation Workout Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --pink: #f5d6e6;
-  --hot: #c2185b;
-  --deep: #6a1b3a;
-  --white: #ffffff;
-  --dark: #1a1a2e;
-  --gray: #666;
-  --light: #faf7f9;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--dark);
-}
-
-.hero {
-  background: linear-gradient(135deg, #ffffff 0%, #faf7f9 60%, #f5d6e6 100%);
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 900;
-  margin-bottom: 15px;
-}
-
-.hero span { color: var(--hot); }
-
-.sub {
-  color: var(--gray);
-  margin-bottom: 25px;
-}
-
-.product {
+  :root {
+    --pink: #f5dde8;
+    --hot: #d63384;
+    --dark-pink: #e07aab;
+    --deep: #8b1a4a;
+    --white: #ffffff;
+    --dark: #1a1a2e;
+    --gray: #666;
+    --light: #fdf8fb;
+    --green: #22c55e;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+ 
+  /* ── ANNOUNCEMENT BAR ── */
+  .bar {
+    background: var(--hot);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .bar span { background: white; color: var(--hot); padding: 2px 8px; border-radius: 4px; margin: 0 6px; font-weight: 700; }
+ 
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #ffffff 0%, #fdf5f9 50%, #f9e8f2 100%);
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(214,51,132,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(251,200,225,0.6), transparent 70%);
+    border-radius: 50%;
+  }
+ 
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+ 
+  .badge {
+    display: inline-block;
+    background: var(--hot);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+ 
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--hot); }
+ 
+  .hero-sub {
+    font-size: 18px;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+ 
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .hbadge {
+    background: white;
+    border: 2px solid var(--pink);
+    color: var(--hot);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+ 
+  /* book mockup area */
+.book-mockup {
   max-width: 320px;
-  margin: 30px auto;
+  margin: 0 auto 30px;
 }
-
-.product img {
+.book-mockup img {
   width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 20px 60px rgba(214,51,132,0.2);
 }
-
-.badges {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:25px;
-}
-
-.badge {
-  border:1px solid var(--pink);
-  padding:8px 16px;
-  border-radius:20px;
-  font-size:14px;
-}
-
-.price-box {
-  background:white;
-  border:1px solid var(--pink);
-  border-radius:20px;
-  padding:25px;
-  max-width:400px;
-  margin:20px auto;
-}
-
-.old { text-decoration: line-through; color:#aaa; }
-.new { font-size:36px; color:var(--hot); font-weight:800; }
-
-.btn {
-  display:block;
-  margin-top:15px;
-  background: var(--hot);
-  color:white;
-  padding:18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-}
-
-.section {
-  padding:60px 20px;
-  text-align:center;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  max-width:900px;
-  margin:auto;
-}
-
-.card {
-  border:1px solid var(--pink);
-  border-radius:14px;
-  padding:20px;
-  background:var(--light);
-}
-
-.final {
-  background: var(--hot);
-  color:white;
-  text-align:center;
-  padding:60px 20px;
-}
-
-.final .btn { background:white; color:var(--hot); }
-
-footer {
-  text-align:center;
-  padding:30px;
-  color:#999;
-}
+ 
+  /* ── PRICE BLOCK ── */
+  .price-block {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    max-width: 440px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(214,51,132,0.12);
+    border: 2px solid var(--pink);
+  }
+ 
+  .stars { color: #f59e0b; font-size: 20px; margin-bottom: 6px; }
+  .review-count { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+ 
+  .price-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-old { font-size: 18px; color: #aaa; text-decoration: line-through; }
+  .price-new { font-size: 36px; font-weight: 800; color: var(--hot); }
+  .price-tag {
+    background: var(--hot);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+ 
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--hot) 0%, #c0286e 100%);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 20px rgba(214,51,132,0.35);
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(214,51,132,0.45); }
+ 
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .pay-icon {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+  }
+ 
+  .guarantee-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .g-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray); }
+  .g-icon { font-size: 16px; }
+ 
+  /* ── SECTIONS ── */
+  .section { padding: 60px 20px; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); font-weight: 900; text-align: center; margin-bottom: 40px; color: var(--deep); }
+  .section-title span { color: var(--hot); }
+ 
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .feat-card {
+    background: var(--light);
+    border: 2px solid var(--pink);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .feat-card:hover { transform: translateY(-4px); }
+  .feat-icon { font-size: 36px; margin-bottom: 12px; }
+  .feat-title { font-weight: 700; font-size: 16px; color: var(--deep); margin-bottom: 8px; }
+  .feat-desc { font-size: 14px; color: var(--gray); line-height: 1.5; }
+ 
+  /* WHAT'S INCLUDED */
+  .included-bg { background: linear-gradient(135deg, #fdfafa, #faf0f5); }
+  .included-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .inc-item {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-left: 4px solid var(--hot);
+  }
+  .inc-check { color: var(--hot); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .inc-text { font-size: 14px; line-height: 1.5; }
+  .inc-text strong { display: block; font-size: 15px; margin-bottom: 2px; color: var(--deep); }
+ 
+  /* SPECS */
+  .specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; margin: 0 auto; }
+  .spec-item { text-align: center; padding: 20px; background: var(--light); border-radius: 14px; border: 1px solid var(--pink); }
+  .spec-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--hot); }
+  .spec-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
+ 
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .testi-card {
+    background: white;
+    border: 2px solid var(--pink);
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+  .testi-stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; }
+  .testi-text { font-size: 14px; line-height: 1.6; color: var(--dark); margin-bottom: 14px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar { width: 38px; height: 38px; background: var(--pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .testi-name { font-weight: 700; font-size: 14px; }
+  .testi-tag { font-size: 11px; color: var(--gray); }
+ 
+  /* FAQ */
+  .faq-list { max-width: 700px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--pink); padding: 20px 0; cursor: pointer; }
+  .faq-q { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; color: var(--deep); }
+  .faq-a { font-size: 14px; color: var(--gray); line-height: 1.6; margin-top: 12px; display: none; }
+  .faq-a.open { display: block; }
+  .faq-icon { color: var(--hot); font-size: 22px; font-weight: 400; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-icon.rot { transform: rotate(45deg); }
+ 
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(135deg, var(--hot) 0%, #8b1a4a 100%);
+    padding: 70px 20px;
+    text-align: center;
+    color: white;
+  }
+  .final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 46px); font-weight: 900; margin-bottom: 16px; }
+  .final-cta p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; }
+  .final-cta .cta-btn { max-width: 400px; margin: 0 auto 16px; background: white; color: var(--hot); }
+  .final-cta .cta-btn:hover { background: #fff5f9; }
+  .final-cta .price-final { font-size: 16px; opacity: 0.85; }
+  .final-cta .price-final s { opacity: 0.6; }
+ 
+  /* FOOTER */
+  footer { background: var(--dark); color: #aaa; text-align: center; padding: 30px 20px; font-size: 13px; }
+  footer a { color: var(--pink); text-decoration: none; }
+ 
+  /* WEEK OVERVIEW */
+  .weeks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .week-card {
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .week-card::before { content: ''; position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+  .week-card:nth-child(1) { background: linear-gradient(135deg, #e07aab, var(--hot)); }
+  .week-card:nth-child(2) { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+  .week-card:nth-child(3) { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+  .week-card:nth-child(4) { background: linear-gradient(135deg, #1a6b3a, #27ae60); }
+  .week-num { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; margin-bottom: 6px; }
+  .week-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; margin-bottom: 10px; }
+  .week-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .week-tag { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+ 
+  /* divider */
+  .divider { text-align: center; padding: 10px 0; font-size: 24px; color: var(--pink); }
+ 
+  @media (max-width: 600px) {
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 30px; }
+  }
+ 
+  /* pulse animation on CTA */
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 20px rgba(214,51,132,0.35); }
+    50% { box-shadow: 0 10px 40px rgba(214,51,132,0.6); }
+  }
+  .cta-btn.pulse { animation: pulse 2s infinite; }
 </style>
 </head>
-
 <body>
-
+ 
+<!-- ANNOUNCEMENT BAR -->
+<div class="bar">
+  🎉 LIMITED TIME OFFER — <span>50% OFF</span> Today Only! Instant Digital Download
+</div>
+ 
+<!-- HERO -->
 <section class="hero">
-  <h1>Transform Your Body <br><span>In 30 Days</span></h1>
-  <p class="sub">No gym. No equipment. Real results from home.</p>
-
-  <div class="product">
-    <img src="photo1" alt="ebook">
-  </div>
-
-  <div class="badges">
-    <div class="badge">🔥 Fat Burn</div>
-    <div class="badge">💪 Tone Up</div>
-    <div class="badge">✨ Glow Up</div>
-  </div>
-
-  <div class="price-box">
-    <div class="old">$39.99</div>
-    <div class="new">$27.99</div>
-    <a href="#" class="btn">Buy Now — Instant Download</a>
+  <div class="hero-inner">
+    <div class="badge">⭐ #1 Home Workout Guide for Girls</div>
+    <h1>Transform Your Body<br><span>In Just 30 Days</span><br>— From Home</h1>
+    <p class="hero-sub">No gym. No equipment. No excuses. The complete workout guide that takes you from beginner to transformed — one day at a time.</p>
+ 
+    <div class="hero-badges">
+      <span class="hbadge">🔥 Burns Belly Fat</span>
+      <span class="hbadge">🍑 Lifts & Tones Glutes</span>
+      <span class="hbadge">💪 No Equipment</span>
+      <span class="hbadge">✨ 30-Day Plan</span>
+    </div>
+ 
+<div class="book-mockup">
+  <img src="photo1" alt="Book Cover">
+</div>
+ 
+    <!-- PRICE BLOCK -->
+    <div class="price-block">
+      <div class="stars">★★★★★</div>
+      <div class="review-count">Based on early access reviews</div>
+ 
+      <div class="price-row">
+        <span class="price-old">$55.00 USD</span>
+        <span class="price-new">$27.99</span>
+        <span class="price-tag">50% OFF</span>
+      </div>
+ 
+      <a href="YOUR_WHOP_LINK_HERE" class="cta-btn pulse">
+        💳 Buy Now — Instant Download
+      </a>
+ 
+      <div class="payment-icons">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">Mastercard</span>
+        <span class="pay-icon">PayPal</span>
+        <span class="pay-icon">Apple Pay</span>
+        <span class="pay-icon">Google Pay</span>
+      </div>
+ 
+      <div class="guarantee-row">
+        <span class="g-item"><span class="g-icon">📦</span> Instant Download</span>
+        <span class="g-item"><span class="g-icon">🔒</span> Secure Checkout</span>
+        <span class="g-item"><span class="g-icon">↩️</span> 30-Day Guarantee</span>
+      </div>
+    </div>
   </div>
 </section>
-
+ 
+<!-- SPECS NUMBERS -->
 <section class="section">
-  <h2>What's Included</h2>
-  <div class="grid">
-    <div class="card">30-Day Plan</div>
-    <div class="card">90+ Exercises</div>
-    <div class="card">No Equipment</div>
-    <div class="card">Nutrition Guide</div>
+  <div class="section-inner">
+    <h2 class="section-title">Everything You Need to <span>Transform</span></h2>
+    <div class="specs-grid">
+      <div class="spec-item"><div class="spec-num">66</div><div class="spec-label">Pages of Content</div></div>
+      <div class="spec-item"><div class="spec-num">30</div><div class="spec-label">Days of Workouts</div></div>
+      <div class="spec-item"><div class="spec-num">90+</div><div class="spec-label">Exercise Illustrations</div></div>
+      <div class="spec-item"><div class="spec-num">0</div><div class="spec-label">Equipment Needed</div></div>
+    </div>
   </div>
 </section>
-
+ 
+<!-- WEEK OVERVIEW -->
+<section class="section included-bg">
+  <div class="section-inner">
+    <h2 class="section-title">Your <span>4-Week</span> Journey</h2>
+    <div class="weeks-grid">
+      <div class="week-card">
+        <div class="week-num">Week 1</div>
+        <div class="week-name">Foundation</div>
+        <div class="week-tags">
+          <span class="week-tag">Full Body</span>
+          <span class="week-tag">Core</span>
+          <span class="week-tag">Glutes</span>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Week 2</div>
+        <div class="week-name">Burn 🔥</div>
+        <div class="week-tags">
+          <span class="week-tag">HIIT</span>
+          <span class="week-tag">Belly</span>
+          <span class="week-tag">Booty</span>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Week 3</div>
+        <div class="week-name">Sculpt 💎</div>
+        <div class="week-tags">
+          <span class="week-tag">Obliques</span>
+          <span class="week-tag">Power</span>
+          <span class="week-tag">Tone</span>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Week 4</div>
+        <div class="week-name">Transform ✨</div>
+        <div class="week-tags">
+          <span class="week-tag">Strength</span>
+          <span class="week-tag">Challenge</span>
+          <span class="week-tag">Finish</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- WHAT'S INCLUDED -->
 <section class="section">
-  <h2>Why This Works</h2>
-  <div class="grid">
-    <div class="card">Beginner Friendly</div>
-    <div class="card">Step-by-step</div>
-    <div class="card">Fast Results</div>
-    <div class="card">At Home</div>
+  <div class="section-inner">
+    <h2 class="section-title">What's <span>Included</span></h2>
+    <div class="included-list">
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>30-Day Full Workout Plan</strong>Every workout day planned for you — just open and follow.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>90+ Exercise Illustrations</strong>Anime fitness girl demonstrating every single exercise clearly.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Sets, Reps & Muscles Guide</strong>Exact sets, reps, timing, and muscles worked for every exercise.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Warm-Up & Cool-Down Routines</strong>Full 5-minute warm-up and 8-stretch cool-down to protect your body.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Nutrition Guide for Girls</strong>What to eat, what to avoid, and a full sample meal plan.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Progress Tracker</strong>Track your measurements, photos, and energy across all 4 weeks.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Trainer Tips on Every Page</strong>Expert coaching tips alongside every workout to maximize results.</div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">✅</span>
+        <div class="inc-text"><strong>Instant Digital Download</strong>Access your guide immediately after purchase — PDF format.</div>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="final">
-  <h2>Start Your Transformation Today</h2>
-  <div style="font-size:32px; font-weight:800; margin:10px 0;">$27.99</div>
-  <a href="#" class="btn">Get Instant Access</a>
+ 
+<!-- WHY THIS WORKS -->
+<section class="section included-bg">
+  <div class="section-inner">
+    <h2 class="section-title">Why This Program <span>Works</span></h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">📈</div>
+        <div class="feat-title">Progressive Overload</div>
+        <div class="feat-desc">Each week builds on the last. Your body is constantly challenged — that's how real change happens.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <div class="feat-title">Targeted for Girls</div>
+        <div class="feat-desc">Designed specifically for female body goals — belly, waist, glutes, and thighs. Not generic gym content.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏠</div>
+        <div class="feat-title">Works at Home</div>
+        <div class="feat-desc">Every exercise requires zero equipment. All you need is a small space and your own bodyweight.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🖼️</div>
+        <div class="feat-title">Visual Illustrations</div>
+        <div class="feat-desc">Every exercise shown with our anime fitness character — no second-guessing how to do any move.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⏱️</div>
+        <div class="feat-title">Only 20-30 Min/Day</div>
+        <div class="feat-desc">Short, focused workouts that fit into any schedule. Consistency beats long workouts every time.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🧠</div>
+        <div class="feat-title">Science-Based</div>
+        <div class="feat-desc">Built on proven strength-training principles — not trends. Every decision in this guide has a reason.</div>
+      </div>
+    </div>
+  </div>
 </section>
-
+ 
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">What Girls Are <span>Saying</span></h2>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"I've tried so many programs but this one actually tells you exactly what to do every single day. The illustrations make it so easy. I'm in Week 3 and I can already see the difference in my waist!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div>
+            <div class="testi-name">Sarah M. ✅ Verified</div>
+            <div class="testi-tag">Week 3 Progress</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"The workout structure is perfect. I love how each day tells you exactly which muscles you're working. The nutrition guide changed how I eat completely. 100% recommend to any girl who wants results at home."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👩‍🦱</div>
+          <div>
+            <div class="testi-name">Nour K. ✅ Verified</div>
+            <div class="testi-tag">Completed 30 Days</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"As a complete beginner I was nervous but this guide made everything so clear and manageable. The rest day recovery tips are genuinely helpful. I didn't feel overwhelmed once — just motivated every single day."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👧</div>
+          <div>
+            <div class="testi-name">Amira T. ✅ Verified</div>
+            <div class="testi-tag">Beginner, Week 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- WHAT'S INCLUDED ACCORDION -->
+<section class="section included-bg">
+  <div class="section-inner">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+    <div class="faq-list">
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Who is this guide for? <span class="faq-icon">+</span></div>
+        <div class="faq-a">This guide is for any girl who wants to transform her body at home — whether you're a complete beginner or have some experience. The program starts at a manageable pace and progressively increases intensity over 4 weeks.</div>
+      </div>
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do I need any equipment? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Absolutely zero equipment needed. All exercises use only your bodyweight. A few exercises suggest using a chair or sofa which you already have at home. Nothing to buy, nothing to set up.</div>
+      </div>
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How long are the workouts? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Each workout takes 20-30 minutes including warm-up. Rest days are included each week so your body can recover and grow stronger. Total commitment is around 25 minutes a day, 5 days a week.</div>
+      </div>
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How will I receive the guide? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Immediately after purchase you will receive a link to download your PDF guide. You can save it to your phone, tablet, or computer and access it anytime — no internet required after download.</div>
+      </div>
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What if it doesn't work for me? <span class="faq-icon">+</span></div>
+        <div class="faq-a">We offer a 30-day money-back guarantee. If you follow the program consistently and are not satisfied with the results, contact us within 30 days of purchase and we will give you a full refund — no questions asked.</div>
+      </div>
+ 
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I do this program more than once? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Absolutely! Many girls complete the 30-day program and restart it immediately with more intensity or heavier effort. Your body adapts — so doing the program again will continue to produce new results.</div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Start Your Transformation<br>Today 💖</h2>
+  <p>Join thousands of girls who are already changing their bodies at home.<br>Your transformation starts the moment you say yes.</p>
+  <a href="YOUR_WHOP_LINK_HERE" class="cta-btn">
+    🚀 Get Instant Access — $27.99
+  </a>
+  <div class="price-final"><s>$55.00</s> → $27.99 · Instant Download · 30-Day Money Back Guarantee</div>
+</section>
+ 
+<!-- FOOTER -->
 <footer>
-© 2026 All Rights Reserved
+  <p>© 2026 30-Day Girl Transformation. All rights reserved.</p>
+  <p style="margin-top:8px"><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Contact</a></p>
 </footer>
-
+ 
+<script>
+function toggleFaq(el) {
+  const a = el.querySelector('.faq-a');
+  const icon = el.querySelector('.faq-icon');
+  const isOpen = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(x => x.classList.remove('rot'));
+  if (!isOpen) {
+    a.classList.add('open');
+    icon.classList.add('rot');
+  }
+}
+</script>
+ 
+<!-- FAKE PURCHASE NOTIFICATIONS -->
+<style>
+  .notif-popup {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: white;
+    border-radius: 14px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+    max-width: 300px;
+    border-left: 4px solid var(--hot);
+    transform: translateX(-350px);
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .notif-popup.show { transform: translateX(0); }
+  .notif-avatar {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--hot), #c0286e);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .notif-body { flex: 1; }
+  .notif-name { font-weight: 700; font-size: 13px; color: var(--deep); }
+  .notif-msg { font-size: 12px; color: var(--gray); margin-top: 2px; }
+  .notif-time { font-size: 11px; color: var(--hot); margin-top: 3px; font-weight: 600; }
+  .notif-close {
+    font-size: 16px; color: #bbb; cursor: pointer; padding: 0 4px;
+    line-height: 1; flex-shrink: 0;
+  }
+  .notif-close:hover { color: #888; }
+</style>
+ 
+<div class="notif-popup" id="notifPopup">
+  <div class="notif-avatar" id="notifAvatar">👩</div>
+  <div class="notif-body">
+    <div class="notif-name" id="notifName">Sarah M.</div>
+    <div class="notif-msg">🛒 Just purchased the guide!</div>
+    <div class="notif-time" id="notifTime">2 minutes ago</div>
+  </div>
+  <span class="notif-close" onclick="hideNotif()">✕</span>
+</div>
+ 
+<script>
+const buyers = [
+  { name: "Sarah M.", avatar: "👩", time: "Just now" },
+  { name: "Nour K.", avatar: "👩‍🦱", time: "1 minute ago" },
+  { name: "Amira T.", avatar: "👧", time: "2 minutes ago" },
+  { name: "Lina R.", avatar: "👩‍🦰", time: "3 minutes ago" },
+  { name: "Fatima Z.", avatar: "🧕", time: "5 minutes ago" },
+  { name: "Maya S.", avatar: "👱‍♀️", time: "6 minutes ago" },
+  { name: "Hana B.", avatar: "👩‍🦳", time: "8 minutes ago" },
+  { name: "Rina C.", avatar: "🙍‍♀️", time: "10 minutes ago" },
+  { name: "Sofia L.", avatar: "👩‍🦱", time: "12 minutes ago" },
+  { name: "Yasmine O.", avatar: "👩", time: "Just now" },
+];
+ 
+let notifTimer = null;
+let hideTimer = null;
+ 
+function showNotif() {
+  const popup = document.getElementById('notifPopup');
+  const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+  document.getElementById('notifName').textContent = buyer.name;
+  document.getElementById('notifAvatar').textContent = buyer.avatar;
+  document.getElementById('notifTime').textContent = buyer.time;
+  popup.classList.add('show');
+  hideTimer = setTimeout(() => {
+    popup.classList.remove('show');
+  }, 4000);
+}
+ 
+function hideNotif() {
+  document.getElementById('notifPopup').classList.remove('show');
+  clearTimeout(hideTimer);
+}
+ 
+// First one after 3 seconds, then every 20-35 seconds
+setTimeout(() => {
+  showNotif();
+  notifTimer = setInterval(() => {
+    showNotif();
+  }, Math.random() * 15000 + 20000);
+}, 3000);
+</script>
 </body>
 </html>
